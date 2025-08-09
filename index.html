@@ -1134,28 +1134,25 @@
                       <span class="has-first-color">create something amazing together.</span>
                     </h5>
                     <div class="yk-gap-40"></div>
-                    <form class="yk-contact-form" novalidate="novalidate">
+                    <form class="yk-contact-form" action="https://formspree.io/f/xwpqavlz" method="POST">
                       <div class="yk-form-row two-col">
                         <div class="yk-form-group">
                           <label class="has-white-color" for="name">Name*</label>
-                          <input type="text" id="name" name="name" required="required" placeholder="Your Name">
+                          <input type="text" id="name" name="name" required placeholder="Your Name">
                         </div>
                         <div class="yk-form-group">
                           <label class="has-white-color" for="email">Email*</label>
-                          <input type="email" id="email" name="email" required="required" placeholder="Your Email">
+                          <input type="email" id="email" name="email" required placeholder="Your Email">
                         </div>
                       </div>
                       <div class="yk-form-group">
                         <label class="has-white-color" for="message">Message*</label>
-                        <textarea name="message" id="message" rows="3" placeholder="Message"></textarea>
+                        <textarea name="message" id="message" rows="3" placeholder="Message" required></textarea>
                       </div>
                       <div class="message success">
                         Your message is successfully sent...
                       </div>
-                      <div class="message danger">
-                        Sorry something went wrong!
-                      </div>
-                      <button class="yk-btn yk-btn--primary">
+                      <button type="submit" class="yk-btn yk-btn--primary">
                         <span class="yk-btn__text">Contact Me</span>
                       </button>
                     </form>

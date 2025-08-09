@@ -41,4 +41,57 @@ document.addEventListener("DOMContentLoaded", () => {
     },
     { once: true }
   );
+
+  const contactForm = document.querySelector(".yk-contact-form");
+  if (contactForm) {
+    contactForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+
+      const formData = new FormData(contactForm);
+      const submitBtn = contactForm.querySelector('button[type="submit"]');
+      const messageEl = contactForm.querySelector(".message.success");
+
+      submitBtn.disabled = true;
+      submitBtn.querySelector(".yk-btn__text").textContent = "Sending...";
+
+      fetch(contactForm.action, {
+        method: "POST",
+        body: formData,
+        headers: {
+          Accept: "application/json",
+        },
+      })
+        .then((response) => {
+          if (response.ok) {
+            messageEl.style.display = "block";
+            contactForm.reset();
+            playSound(sounds.open);
+
+            setTimeout(() => {
+              messageEl.style.display = "none";
+            }, 5000);
+          } else {
+            throw new Error("Form submission failed");
+          }
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+          messageEl.textContent = "Error sending message. Please try again.";
+          messageEl.style.display = "block";
+          messageEl.classList.remove("success");
+          messageEl.classList.add("danger");
+
+          setTimeout(() => {
+            messageEl.style.display = "none";
+            messageEl.classList.remove("danger");
+            messageEl.classList.add("success");
+            messageEl.textContent = "Your message is successfully sent...";
+          }, 5000);
+        })
+        .finally(() => {
+          submitBtn.disabled = false;
+          submitBtn.querySelector(".yk-btn__text").textContent = "Contact Me";
+        });
+    });
+  }
 });
