@@ -2314,3 +2314,15 @@ body .pp-scrollable {
   -ms-transform: scale(1.2);
   transform: scale(1.2);
 }
+
+@media (max-width: 991px) {
+  .attachment-06 {
+    display: none;
+  }
+}
+
+@media (max-width: 991px) {
+  .yk-fullpage-slider .yk-section__content {
+    padding-bottom: 12rem;
+  }
+}
