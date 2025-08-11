@@ -1999,6 +1999,13 @@ body .pp-scrollable {
   transform: translate3d(0, 0, 0);
   opacity: 1;
 }
+@media (max-width: 991px) {
+  .yk-work .yk-work__link {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+}
 .yk-work:hover .yk-work-thumbnail img {
   -webkit-transform: scale(1.05);
   -ms-transform: scale(1.05);
